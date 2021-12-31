@@ -11,8 +11,9 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<Signup />} />
-          <Route path="/bug-table" element={<BugTable />} />
+          {/* <Route path="/bug-table" element={<BugTable />} /> */}
         </Routes>
+
       </BrowserRouter>
     </div>
   );

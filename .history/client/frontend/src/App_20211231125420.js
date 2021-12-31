@@ -3,7 +3,6 @@ import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import axios from 'axios';
 import Signup from './components/Signup';
-import BugTable from './components/BugTable';
 
 function App() {
   return (
@@ -11,8 +10,8 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="*" element={<Signup />} />
-          <Route path="/bug-table" element={<BugTable />} />
         </Routes>
+
       </BrowserRouter>
     </div>
   );

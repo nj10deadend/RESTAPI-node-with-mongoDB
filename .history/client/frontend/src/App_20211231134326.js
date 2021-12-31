@@ -13,6 +13,7 @@ function App() {
           <Route path="*" element={<Signup />} />
           <Route path="/bug-table" element={<BugTable />} />
         </Routes>
+
       </BrowserRouter>
     </div>
   );
