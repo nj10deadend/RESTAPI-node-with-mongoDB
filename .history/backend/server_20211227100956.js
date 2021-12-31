@@ -6,22 +6,16 @@ const port = 8080;
 import mongoose from 'mongoose';
 import connectDB from './config/db.js'
 import User from './models/User.js';
-import Bug from './models/Bug.js';
-//// Users route imports /////
+//// route imports /////
 import allUsersRouter from './routes/allUsersRouter.js';
 import findUserRouter from './routes/findUserRouter.js';
 import patchAndDeleteUserRouter from './routes/patchAndDeleteUserRouter.js';
-///// Bugs route imports /////
-import allBugsRouter from './routes/allBugsRouter.js';
-import findBugRouter from './routes/findBugRouter.js';
-import patchAndDeleteBugRouter from './routes/patchAndDeleteBugRouter.js';
+
 ////////////////////////////////////////////////////////////////
 connectDB();
-// function to create a new user or a new bug
+// function to create a new user
 
 // createUser();
-
-// createBug();
 
 ////
 
@@ -34,15 +28,6 @@ async function createUser () {
 
     })
     console.log(newUser);
-}
-
-async function createBug () {
-    const newBug = await Bug.create({
-        title: 'Server not connecting',
-        description: 'MongoDB server isn\'t connecting to Mongo Compass',
-        assignee: 'Naseer'
-    })
-    console.log(newBug);
 }
 
 app.use(cors());
@@ -58,9 +43,8 @@ app.use('/', findUserRouter);
 app.use('/', patchAndDeleteUserRouter);
 
 //// Bug routes ////////
-app.use('/', allBugsRouter);
-app.use('/', findBugRouter);
-app.use('/', patchAndDeleteBugRouter);
+
+
 //////////////////////
 
 

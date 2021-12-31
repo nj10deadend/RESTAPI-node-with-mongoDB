@@ -20,7 +20,7 @@ allUsersRouter.post('/users', async (req, res) => {
     let foundName = User.find({name: reqName});
     let newUser;
 
-    if (foundName.length) {
+    if (foundName) {
         console.log("User already exists in database")
         res.send("User already exists in database");
     } else {
@@ -37,11 +37,8 @@ allUsersRouter.post('/users', async (req, res) => {
             admin: parsedBoolAdmin
         }
         await User.create(newUser);
-        console.log("User successfully added to database")
 
     }
-
-    res.status(201).send(newUser);
 })
 
 // export {allUsersRouter};

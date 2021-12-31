@@ -14,7 +14,8 @@ import patchAndDeleteUserRouter from './routes/patchAndDeleteUserRouter.js';
 ///// Bugs route imports /////
 import allBugsRouter from './routes/allBugsRouter.js';
 import findBugRouter from './routes/findBugRouter.js';
-import patchAndDeleteBugRouter from './routes/patchAndDeleteBugRouter.js';
+
+
 ////////////////////////////////////////////////////////////////
 connectDB();
 // function to create a new user or a new bug
@@ -60,7 +61,8 @@ app.use('/', patchAndDeleteUserRouter);
 //// Bug routes ////////
 app.use('/', allBugsRouter);
 app.use('/', findBugRouter);
-app.use('/', patchAndDeleteBugRouter);
+
+
 //////////////////////
 
 

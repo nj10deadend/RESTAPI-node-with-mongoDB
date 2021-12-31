@@ -20,7 +20,6 @@ const bugSchema = new mongoose.Schema({
         type: Date,
         default: Date.now
     }
-    
 })
 
 const Bug = mongoose.model('Bug', bugSchema);
