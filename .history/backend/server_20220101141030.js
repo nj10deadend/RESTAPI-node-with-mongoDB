@@ -38,8 +38,8 @@ async function createUser () {
 
 async function createBug () {
     const newBug = await Bug.create({
-        title: 'Test 1',
-        description: 'Bug Test',
+        title: 'MongoDB Compass not connecting',
+        description: 'The mongo server that I launch from my shell isn\'t appearing on MongoDB Compass',
         assignee: 'Naseer'
     })
     console.log(newBug);

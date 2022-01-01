@@ -1,9 +1,7 @@
 import mongoose from 'mongoose';
 
 const today = new Date();
-const date = today.getFullYear()+ '-' +(today.getMonth() + 1) + '-' + today.getDate();
-const dueDate = today.getFullYear()+ '-' + (today.getMonth() + 1) + '-' + (today.getDate() + 3);
-
+const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
 const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
 const bugSchema = new mongoose.Schema({
@@ -19,13 +17,8 @@ const bugSchema = new mongoose.Schema({
         type: String
     },
     date: {
-        type: String,
+        type: Date,
         default: date
-    },
-    due_date: {
-        type: String,
-        default: dueDate
-
     },
     time: {
         type: String,

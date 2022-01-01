@@ -19,11 +19,11 @@ const bugSchema = new mongoose.Schema({
         type: String
     },
     date: {
-        type: String,
+        type: Date,
         default: date
     },
     due_date: {
-        type: String,
+        type: Date,
         default: dueDate
 
     },

@@ -16,6 +16,7 @@ function BugSearch ({setBugServer}) {
               console.log(res.data);
             setBugServer(res.data)
         })
+    
     }
     
     function onSearch(event) {

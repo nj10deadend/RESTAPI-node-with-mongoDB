@@ -38,9 +38,9 @@ async function createUser () {
 
 async function createBug () {
     const newBug = await Bug.create({
-        title: 'Test 1',
-        description: 'Bug Test',
-        assignee: 'Naseer'
+        title: 'CSS Conflicts',
+        description: 'My custom CSS and boostrap aren\'t rendering properly',
+        assignee: 'The Bride'
     })
     console.log(newBug);
 }

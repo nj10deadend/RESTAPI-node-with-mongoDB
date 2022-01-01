@@ -38,9 +38,9 @@ async function createUser () {
 
 async function createBug () {
     const newBug = await Bug.create({
-        title: 'Test 1',
-        description: 'Bug Test',
-        assignee: 'Naseer'
+        title: 'Red Ring of Death',
+        description: 'Whenever I try to turn on my Xbox the ring around the power button turns red and it shuts down',
+        assignee: 'John'
     })
     console.log(newBug);
 }

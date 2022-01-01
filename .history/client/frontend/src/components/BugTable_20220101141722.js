@@ -24,7 +24,6 @@ function BugTable ({userFormData}) {
     const [title, setTitle] = useState("");
     const [description, setDescription] = useState("");
     const [assignee, setAssignee] = useState("");
-    const [dueDate, setDueDate] = useState("");
 
 
 
@@ -91,7 +90,7 @@ function BugTable ({userFormData}) {
         <div>
             {/* <p>Logged in as {user.name}</p> */}
 
-            <Typography variant="h4" component="div" gutterBottom>Bug Tracker</Typography>
+            <Typography variant="h3" component="div" gutterBottom>Bug Tracker</Typography>
             <br></br>
 
             <Button onClick={() => getFetchAllBugs()} variant="outlined">Return to original list</Button>
@@ -149,7 +148,7 @@ function BugTable ({userFormData}) {
                             <TableCell align="right">Description</TableCell>
                             <TableCell align="right">Assignee</TableCell>
                             <TableCell align="right">Time</TableCell>
-                            <TableCell align="right">Date created</TableCell>
+                            <TableCell align="right">Date</TableCell>
                             <TableCell align="right">Due Date</TableCell>
                         </TableRow>
                     </TableHead>

@@ -21,7 +21,7 @@ connectDB();
 
 // createUser();
 
-createBug();
+// createBug();
 
 ////
 
@@ -38,9 +38,9 @@ async function createUser () {
 
 async function createBug () {
     const newBug = await Bug.create({
-        title: 'Test 1',
-        description: 'Bug Test',
-        assignee: 'Naseer'
+        title: 'Red ring of death',
+        description: 'The ring around my xbox is lighting up red when I power it on',
+        assignee: 'John'
     })
     console.log(newBug);
 }

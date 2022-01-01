@@ -5,10 +5,10 @@ import Button from '@mui/material/Button';
 import Modal from '@mui/material/Modal';
 import Backdrop from '@mui/material/Backdrop';
 import TextField from '@mui/material/TextField';
-// import Typography from '@mui/material/Typography';
+import Typography from '@mui/material/Typography';
 import SendIcon from '@material-ui/icons/Send';
 import DeleteIcon from '@mui/icons-material/Delete';
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import axios from 'axios';
 
 const style = {
