@@ -25,8 +25,6 @@ function BugTable ({userFormData}) {
     const [description, setDescription] = useState("");
     const [assignee, setAssignee] = useState("");
 
-    // const [rowStyle, setRowStyle] = useState("no-highlight");
-
 
 
     // function getFetchCurrentUser () {
@@ -75,20 +73,6 @@ function BugTable ({userFormData}) {
         await postRequest();
         getFetchAllBugs();
     }
-    // const highlightedRow = () => {
-    //     const today = new Date();
-    //     const currentDate = today.getFullYear()+ '-' +(today.getMonth() + 1) + '-' + today.getDate();
-    //     console.log(currentDate);
-    //     const dateFormatCurrentDate = new Date(currentDate);
-    //     console.log(dateFormatCurrentDate);
-    //     const dueDateObj = new Date(eachBug.due_date);
-    //     console.log(dueDateObj);
-    //     if (dateFormatCurrentDate >= dueDateObj) {
-    //         setRowStyle("highlighted")
-    //     } else {
-    //         setRowStyle("no-highlight")
-    //     }
-    // }
 
 
     const renderTableCells = bugServer.map(eachBug => {

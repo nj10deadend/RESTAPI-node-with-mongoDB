@@ -75,7 +75,6 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
         await deleteRequest();
         closeDeleteModal();
         getFetchAllBugs();
-        highlightedRow();
     }
 
     const highlightedRow = () => {
@@ -83,10 +82,9 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
         const currentDate = today.getFullYear()+ '-' +(today.getMonth() + 1) + '-' + today.getDate();
         console.log(currentDate);
         const dateFormatCurrentDate = new Date(currentDate);
-        console.log(dateFormatCurrentDate);
         const dueDateObj = new Date(eachBug.due_date);
         console.log(dueDateObj);
-        if (dateFormatCurrentDate >= dueDateObj) {
+        if (currentDate >= dueDateObj) {
             setRowStyle("highlighted")
         } else {
             setRowStyle("no-highlight")

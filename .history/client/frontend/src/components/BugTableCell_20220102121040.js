@@ -23,7 +23,7 @@ const style = {
     p: 4,
   };
 
-function BugTableCell ({eachBug, getFetchAllBugs}) {
+function BugTableCell ({eachBug, getFetchAllBugs, rowStyle}) {
 
     const [patchModalOpen, setPatchModalOpen] = useState(false);
     const [deleteModalOpen, setDeleteModalOpen] = useState(false);
@@ -35,7 +35,7 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
     const [date, setDate] = useState("");
     const [dueDate, setDueDate] = useState("");
 
-    const [rowStyle, setRowStyle] = useState("no-highlight");
+    // const [rowStyle, setRowStyle] = useState("no-highlight");
 
 
     const openPatchModal = () => setPatchModalOpen(true);
@@ -66,7 +66,7 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
         await patchRequest();
         closePatchModal();
         getFetchAllBugs();
-        highlightedRow();
+        // highlightedRow();
     }
 
     async function deleteBug (event) {
@@ -75,23 +75,22 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
         await deleteRequest();
         closeDeleteModal();
         getFetchAllBugs();
-        highlightedRow();
     }
 
-    const highlightedRow = () => {
-        const today = new Date();
-        const currentDate = today.getFullYear()+ '-' +(today.getMonth() + 1) + '-' + today.getDate();
-        console.log(currentDate);
-        const dateFormatCurrentDate = new Date(currentDate);
-        console.log(dateFormatCurrentDate);
-        const dueDateObj = new Date(eachBug.due_date);
-        console.log(dueDateObj);
-        if (dateFormatCurrentDate >= dueDateObj) {
-            setRowStyle("highlighted")
-        } else {
-            setRowStyle("no-highlight")
-        }
-    }
+    // const highlightedRow = () => {
+    //     const today = new Date();
+    //     const currentDate = today.getFullYear()+ '-' +(today.getMonth() + 1) + '-' + today.getDate();
+    //     console.log(currentDate);
+    //     const dateFormatCurrentDate = new Date(currentDate);
+    //     console.log(dateFormatCurrentDate);
+    //     const dueDateObj = new Date(eachBug.due_date);
+    //     console.log(dueDateObj);
+    //     if (dateFormatCurrentDate >= dueDateObj) {
+    //         setRowStyle("highlighted")
+    //     } else {
+    //         setRowStyle("no-highlight")
+    //     }
+    // }
 
     // highlightedRow();
 

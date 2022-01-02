@@ -66,7 +66,7 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
         await patchRequest();
         closePatchModal();
         getFetchAllBugs();
-        highlightedRow();
+        // highlightedRow();
     }
 
     async function deleteBug (event) {
@@ -75,7 +75,6 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
         await deleteRequest();
         closeDeleteModal();
         getFetchAllBugs();
-        highlightedRow();
     }
 
     const highlightedRow = () => {

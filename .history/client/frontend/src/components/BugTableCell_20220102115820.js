@@ -75,7 +75,6 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
         await deleteRequest();
         closeDeleteModal();
         getFetchAllBugs();
-        highlightedRow();
     }
 
     const highlightedRow = () => {

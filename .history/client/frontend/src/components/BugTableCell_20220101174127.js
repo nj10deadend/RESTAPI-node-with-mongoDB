@@ -35,8 +35,6 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
     const [date, setDate] = useState("");
     const [dueDate, setDueDate] = useState("");
 
-    const [rowStyle, setRowStyle] = useState("no-highlight");
-
 
     const openPatchModal = () => setPatchModalOpen(true);
     const closePatchModal = () => setPatchModalOpen(false);
@@ -66,7 +64,6 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
         await patchRequest();
         closePatchModal();
         getFetchAllBugs();
-        highlightedRow();
     }
 
     async function deleteBug (event) {
@@ -75,30 +72,11 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
         await deleteRequest();
         closeDeleteModal();
         getFetchAllBugs();
-        highlightedRow();
     }
-
-    const highlightedRow = () => {
-        const today = new Date();
-        const currentDate = today.getFullYear()+ '-' +(today.getMonth() + 1) + '-' + today.getDate();
-        console.log(currentDate);
-        const dateFormatCurrentDate = new Date(currentDate);
-        console.log(dateFormatCurrentDate);
-        const dueDateObj = new Date(eachBug.due_date);
-        console.log(dueDateObj);
-        if (dateFormatCurrentDate >= dueDateObj) {
-            setRowStyle("highlighted")
-        } else {
-            setRowStyle("no-highlight")
-        }
-    }
-
-    // highlightedRow();
 
     return (
         <TableRow
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-            className={rowStyle}
         >
             <TableCell component="th" scope="row">{eachBug.title}</TableCell>
             <TableCell align="right">{eachBug._id}</TableCell>
@@ -136,7 +114,7 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
                             <label for="title">Title</label>
                             <br></br>
                             <br></br>
-                            <TextField id="titleInput" label="Enter general title for bug" 
+                            <TextField required id="titleInput" label="Enter general title for bug" 
                             variant="outlined" 
                             onChange={(event) => {setTitle(event.target.value)}} 
                             value = {title}
@@ -146,7 +124,7 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
                             <label for="description">Description</label>
                             <br></br>
                             <br></br>
-                            <TextField id="descInput" label="Enter description of issue/bug" 
+                            <TextField required id="descInput" label="Enter description of issue/bug" 
                             variant="outlined" 
                             onChange={(event) => {setDescription(event.target.value)}} 
                             value = {description}
@@ -156,7 +134,7 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
                             <label for="assignee">Assignee</label>
                             <br></br>
                             <br></br>
-                            <TextField id="assigneeInput" label="Enter name of person assigned this bug (optional)" 
+                            <TextField required id="assigneeInput" label="Enter name of person assigned this bug (optional)" 
                             variant="outlined" 
                             onChange={(event) => {setAssignee(event.target.value)}} 
                             value = {assignee}
@@ -166,7 +144,7 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
                             <label for="date">Date</label>
                             <br></br>
                             <br></br>
-                            <TextField id="date-input" label="Enter Date (YYYY-MM-DD)"
+                            <TextField required id="date-input" label="Enter Date (YYYY-MM-DD)"
                             variant="outlined" 
                             onChange={(event) => {setDate(event.target.value)}} 
                             value = {date}
@@ -176,7 +154,7 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
                             <label for="due-date">Due Date</label>
                             <br></br>
                             <br></br>
-                            <TextField id="due-date-input" label="Enter Due Date (YYYY-MM-DD)"
+                            <TextField required id="due-date-input" label="Enter Due Date (YYYY-MM-DD)"
                             variant="outlined" 
                             onChange={(event) => {setDueDate(event.target.value)}} 
                             value = {dueDate}
