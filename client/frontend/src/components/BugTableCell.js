@@ -65,8 +65,8 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
         setAssignee("");
         await patchRequest();
         closePatchModal();
-        getFetchAllBugs();
         highlightedRow();
+        getFetchAllBugs();
     }
 
     async function deleteBug (event) {
@@ -74,24 +74,24 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
         setDeleteId("");
         await deleteRequest();
         closeDeleteModal();
-        getFetchAllBugs();
         highlightedRow();
+        getFetchAllBugs();
     }
 
     const highlightedRow = () => {
         const today = new Date();
-        const currentDate = today.getFullYear()+ '-' +(today.getMonth() + 1) + '-' + today.getDate();
+        const currentDate = new Date(today.getFullYear()+ '-' +(today.getMonth() + 1) + '-' + today.getDate());
         console.log(currentDate);
-        const dateFormatCurrentDate = new Date(currentDate);
-        console.log(dateFormatCurrentDate);
-        const dueDateObj = new Date(eachBug.due_date);
+        const dueDateObj = new Date(dueDate);
         console.log(dueDateObj);
-        if (dateFormatCurrentDate >= dueDateObj) {
+        console.log(currentDate >= dueDateObj);
+        if (currentDate >= dueDateObj) {
             setRowStyle("highlighted")
         } else {
             setRowStyle("no-highlight")
         }
     }
+
 
     // highlightedRow();
 
