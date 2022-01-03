@@ -92,16 +92,15 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
             setRowStyle("no-highlight")
         }
     }
-    // const highlightRowCondition2 = () => {
-    //     // setRemDays(dateFormatDD.getDate() - currentDate.getDate());
-    //     getFetchAllBugs()
-    //     if (daysRemaining() <= 0) {
-    //         setRowStyle("highlighted")
-    //     } else {
-    //         setRowStyle("no-highlight")
-    //     }
-    //     getFetchAllBugs()
-    // }
+    const highlightRowCondition2 = () => {
+        // setRemDays(dateFormatDD.getDate() - currentDate.getDate());
+        if (daysRemaining() === 0) {
+            setRowStyle("highlighted")
+        } else {
+            setRowStyle("no-highlight")
+        }
+    }
+    // highlightRowCondition2();
 
     function daysRemaining() {
         const today = new Date();
@@ -109,10 +108,8 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
         const dateFormatDD = new Date(eachBug.due_date);
         if ((dateFormatDD.getDate() - currentDate.getDate()) <= 0) {
             console.log("highlighted")
-            // setRowStyle("highlighted")
         } else {
             console.log("no-highlight")
-            // setRowStyle("no-highlight")
         }
         return dateFormatDD.getDate() - currentDate.getDate();
     }

@@ -114,6 +114,7 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
             console.log("no-highlight")
             // setRowStyle("no-highlight")
         }
+        // let tableRow = document.querySelector()
         return dateFormatDD.getDate() - currentDate.getDate();
     }
 

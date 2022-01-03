@@ -33,7 +33,7 @@ function BugSearch ({setBugServer}) {
                 <div>
                     <form onSubmit={onSearch}>
                         <br></br>
-                        <TextField id="outlined-basic" label="Enter bug ID"
+                        <TextField id="outlined-basic" label="Entering bug ID" 
                         variant="outlined" 
                         onChange={(event) => {setSearchId(event.target.value)}} 
                         value = {searchId}

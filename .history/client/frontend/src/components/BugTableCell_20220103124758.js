@@ -34,7 +34,6 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
     const [assignee, setAssignee] = useState("");
     const [date, setDate] = useState("");
     const [dueDate, setDueDate] = useState("");
-    const [remDays, setRemDays] = useState(3);
 
     const [rowStyle, setRowStyle] = useState("no-highlight");
 
@@ -92,29 +91,12 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
             setRowStyle("no-highlight")
         }
     }
-    // const highlightRowCondition2 = () => {
-    //     // setRemDays(dateFormatDD.getDate() - currentDate.getDate());
-    //     getFetchAllBugs()
-    //     if (daysRemaining() <= 0) {
-    //         setRowStyle("highlighted")
-    //     } else {
-    //         setRowStyle("no-highlight")
-    //     }
-    //     getFetchAllBugs()
-    // }
 
     function daysRemaining() {
         const today = new Date();
         const currentDate = new Date(today.getFullYear()+ '-' +(today.getMonth() + 1) + '-' + today.getDate());
-        const dateFormatDD = new Date(eachBug.due_date);
-        if ((dateFormatDD.getDate() - currentDate.getDate()) <= 0) {
-            console.log("highlighted")
-            // setRowStyle("highlighted")
-        } else {
-            console.log("no-highlight")
-            // setRowStyle("no-highlight")
-        }
-        return dateFormatDD.getDate() - currentDate.getDate();
+        const dueDateObj = new Date(dueDate);
+        console.log(currentDate.getDate() - dueDateObj.getDate())
     }
 
 
@@ -125,7 +107,6 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
             className={rowStyle}
         >
-            
             <TableCell component="th" scope="row">{eachBug.title}</TableCell>
             <TableCell align="right">{eachBug._id}</TableCell>
             <TableCell align="right">{eachBug.description}</TableCell>
@@ -133,7 +114,6 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
             <TableCell align="right">{eachBug.time}</TableCell>
             <TableCell align="right">{eachBug.date}</TableCell>
             <TableCell align="right">{eachBug.due_date}</TableCell>
-            <TableCell align="right">{daysRemaining()}</TableCell>
             <Button onClick={openPatchModal} variant="outlined">Edit</Button>
             {/* Edit Button Modal */}
             <Modal
@@ -243,6 +223,7 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
                     </Box> 
                 </form>
             </Modal>
+
 
 
         </TableRow>

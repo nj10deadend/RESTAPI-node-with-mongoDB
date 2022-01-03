@@ -165,8 +165,8 @@ function BugTable ({userFormData}) {
                             <TableCell align="right">Assignee</TableCell>
                             <TableCell align="right">Time</TableCell>
                             <TableCell align="right">Date created</TableCell>
-                            <TableCell align="right">Due Date</TableCell>
                             <TableCell align="right">Days remaining</TableCell>
+                            <TableCell align="right">Due Date</TableCell>
                         </TableRow>
                     </TableHead>
 

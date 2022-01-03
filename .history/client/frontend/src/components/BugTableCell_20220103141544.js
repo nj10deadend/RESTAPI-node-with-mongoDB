@@ -66,7 +66,8 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
         setAssignee("");
         await patchRequest();
         closePatchModal();
-        highlightedRow();
+        // highlightedRow();
+        highlightRowCondition2();
         getFetchAllBugs();
     }
 
@@ -75,33 +76,35 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
         setDeleteId("");
         await deleteRequest();
         closeDeleteModal();
-        highlightedRow();
+        // highlightedRow();
+        highlightRowCondition2();
         getFetchAllBugs();
     }
 
-    const highlightedRow = () => {
-        const today = new Date();
-        const currentDate = new Date(today.getFullYear()+ '-' +(today.getMonth() + 1) + '-' + today.getDate());
-        console.log(currentDate);
-        const dueDateObj = new Date(dueDate);
-        console.log(dueDateObj);
-        console.log(currentDate >= dueDateObj);
-        if (currentDate >= dueDateObj) {
-            setRowStyle("highlighted")
-        } else {
-            setRowStyle("no-highlight")
-        }
-    }
-    // const highlightRowCondition2 = () => {
-    //     // setRemDays(dateFormatDD.getDate() - currentDate.getDate());
-    //     getFetchAllBugs()
-    //     if (daysRemaining() <= 0) {
+    // const highlightedRow = () => {
+    //     const today = new Date();
+    //     const currentDate = new Date(today.getFullYear()+ '-' +(today.getMonth() + 1) + '-' + today.getDate());
+    //     console.log(currentDate);
+    //     const dueDateObj = new Date(dueDate);
+    //     console.log(dueDateObj);
+    //     console.log(currentDate >= dueDateObj);
+    //     if (currentDate >= dueDateObj) {
     //         setRowStyle("highlighted")
     //     } else {
     //         setRowStyle("no-highlight")
     //     }
-    //     getFetchAllBugs()
     // }
+    const highlightRowCondition2 = () => {
+        // setRemDays(dateFormatDD.getDate() - currentDate.getDate());
+        getFetchAllBugs()
+        if (daysRemaining() <= 0) {
+            setRowStyle("highlighted")
+        } else {
+            setRowStyle("no-highlight")
+        }
+        getFetchAllBugs()
+    }
+    // highlightRowCondition2();
 
     function daysRemaining() {
         const today = new Date();
@@ -114,6 +117,7 @@ function BugTableCell ({eachBug, getFetchAllBugs}) {
             console.log("no-highlight")
             // setRowStyle("no-highlight")
         }
+        // let tableRow = document.querySelector()
         return dateFormatDD.getDate() - currentDate.getDate();
     }
 
